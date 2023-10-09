@@ -1,0 +1,8 @@
+open:
+  node:
+    key: e92064ab-0799-467c-8876-25bb1a393422
+    read_key: b07b2f56-c186-4658-ad85-b879e973f86d
+logging:
+  level:
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+    org.springframework.http.server.reactive.RequestLoggingFilter: DEBUG
