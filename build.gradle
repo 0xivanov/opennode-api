@@ -35,14 +35,13 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
             pom {
                 name = "Opennode Api"
                 groupId = 'io.github.0xivanov'
+                description='Opennode Java Api'
                 artifactId = 'opennodeapi'
                 version = '1.0.0'
 
@@ -59,6 +58,12 @@ publishing {
                         name= 'Ivan Ivanov'
                         email= 'ivanivanov.ii726@gmail.com'
                     }
+                }
+
+                scm {
+                    connection = 'scm:git:git://github.com/0xivanov/opennode-api.git'
+                    developerConnection = 'scm:git:ssh://github.com/0xivanov/opennode-api.git'
+                    url = 'http://github.com/0xivanov/opennode-api/'
                 }
             }
         }
