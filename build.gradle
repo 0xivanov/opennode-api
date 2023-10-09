@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'io.github.0xivanov'
-version = '1.0.0'
+version = '1.0.1'
 
 java {
     sourceCompatibility = '17'
@@ -36,15 +36,21 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            version = '1.0.1'
+            artifactId = 'opennodeapi'
+            groupId = 'io.github.0xivanov'
+            from components.java
             pom {
                 name = "Opennode Api"
-                groupId = 'io.github.0xivanov'
                 description = 'Opennode Java Api'
-                artifactId = 'opennodeapi'
-                version = '1.0.0'
                 url = 'http://github.com/0xivanov/opennode-api/'
 
                 licenses {
