@@ -5,7 +5,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.opennodeapi'
+group = 'io.github.0xivanov'
 version = '1.0.0'
 
 java {
@@ -35,20 +35,38 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
+            pom {
+                name = "Opennode Api"
+                groupId = 'io.github.0xivanov'
+                artifactId = 'opennodeapi'
+                version = '1.0.0'
 
-            groupId = 'com.opennodeapi'
-            artifactId = 'opennodeapi'
-            version = '1.0.0'
+                licenses {
+                    license {
+                        name= 'The Apache License, Version 2.0'
+                        url= 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id= '0xivanov'
+                        name= 'Ivan Ivanov'
+                        email= 'ivanivanov.ii726@gmail.com'
+                    }
+                }
+            }
         }
     }
 
     repositories {
         maven {
-            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = project.findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
                 password = project.findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
